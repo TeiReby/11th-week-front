@@ -1,6 +1,8 @@
 name: "PR Lint Check"
 on:
   pull_request:
+      branches:
+      - feat
 
 jobs:
   lint:
