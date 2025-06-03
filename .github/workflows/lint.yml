@@ -1,0 +1,47 @@
+# .github/workflows/lint-on-pr.yml
+name: "PR Lint Check"
+
+# PR이 생성되거나 업데이트될 때마다 실행
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lint-backend:
+    name: Backend Lint
+    runs-on: ubuntu-latest
+    working-directory: ./backend          # 만약 monorepo라면 backend 서브폴더 지정
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v3
+
+      - name: Node.js 설정 (버전 지정)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: ESLint 실행
+        run: npm run lint
+        # -- 만약 lint 오류가 있으면 이 단계에서 실패 → PR에 에러 표시됨
+
+  lint-frontend:
+    name: Frontend Lint
+    runs-on: ubuntu-latest
+    working-directory: ./frontend         # frontend 서브폴더 지정
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v3
+
+      - name: Node.js 설정 (버전 지정)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: ESLint 실행
+        run: npm run lint
