@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { SmallPost } from "../components/Posts";
 import { Link } from "react-router-dom";
 import { getPosts, getTags, checkLogin } from "../apis/api";
-import { getCookie } from "../utils/cookie";
-import { instanceWithToken } from "../apis/axios";
 
 const HomePage = () => {
   const [postList, setPostList] = useState([]);
