@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { updateComment, getUser } from "../../apis/api";
-import { getCookie } from "../../utils/cookie";
 
 const CommentElement = (props) => {
-  const { comment, handleCommentDelete, postId } = props;
-  const [content, setContent] = useState(comment.content);
+  const { comment, handleCommentDelete } = props;
+  const [content] = useState(comment.content);
   const [isEdit, setIsEdit] = useState(false);
   const [user, setUser] = useState(null); // state for user
 
