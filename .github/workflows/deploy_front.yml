@@ -38,7 +38,7 @@ jobs:
 
       - name: S3에 빌드 산출물 업로드
         run: |
-          aws s3 sync ./frontend/build s3://${{ secrets.S3_BUCKET_NAME }} \
+          aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
             --acl public-read
 
