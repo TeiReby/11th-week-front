@@ -2,7 +2,7 @@ import axios from "axios";
 import { getCookie } from "../utils/cookie";
 
 // baseURL, credential, 헤더 세팅
-axios.defaults.baseURL = "http://13.125.134.33/api";
+axios.defaults.baseURL = "https://api.dongin.shop/api";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.common["X-CSRFToken"] = getCookie("csrftoken");
 
