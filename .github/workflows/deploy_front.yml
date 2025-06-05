@@ -27,7 +27,7 @@ jobs:
 
       - name: 빌드 수행 (React 예시)
         working-directory: ./
-        run: npm run build
+        run: CI=false npm run build
 
       - name: AWS 자격증명 설정
         uses: aws-actions/configure-aws-credentials@v2
