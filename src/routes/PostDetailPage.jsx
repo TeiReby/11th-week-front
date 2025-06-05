@@ -9,7 +9,7 @@ const PostDetailPage = () => {
   const { postId } = useParams();
 
   const [post, setPost] = useState(null);
-  const [, setUser] = useState();
+  const [user, setUser] = useState();
   useEffect(() => {
     const getPostAPI = async () => {
       const post = await getPost(postId);

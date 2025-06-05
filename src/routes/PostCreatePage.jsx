@@ -149,7 +149,7 @@ const PostCreatePage = () => {
                   <p>#{tag}</p>
                 </span>
                 <button
-                  className="after:content-['\u00d7'] text-xl"
+                  className="after:content-['\00d7'] text-xl"
                   onClick={() => deleteTag(tag)}
                 />
               </div>

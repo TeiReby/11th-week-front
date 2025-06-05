@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { SmallPost } from "../components/Posts";
 import { Link } from "react-router-dom";
 import { getPosts, getTags, checkLogin } from "../apis/api";
+import { getCookie } from "../utils/cookie";
+import { instanceWithToken } from "../apis/axios";
 
 const HomePage = () => {
   const [postList, setPostList] = useState([]);
@@ -59,7 +61,7 @@ const HomePage = () => {
         </div>
         <input
           type="text"
-          placeholder="태그를 검색해라"
+          placeholder="태그를 검색하세요"
           onChange={handleChange}
           className="border border-orange-400 outline-none rounded-2xl text-center py-2 px-20 text-orange-400 bg-transparent"
         />
